@@ -1,0 +1,5 @@
+/* Styles moved to index.css and page-specific layouts */
+.App {
+  min-height: 100vh;
+  position: relative;
+}

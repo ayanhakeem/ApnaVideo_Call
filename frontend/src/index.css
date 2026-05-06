@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;500;700;900&family=Inter:wght@100;300;400;600;900&family=Syne:wght@400;700;800&display=swap');
+
+:root {
+  --bg-black: #050505;
+  --card-surface: #111111;
+  --text-primary: #FFFFFF;
+  --text-secondary: #999999;
+  --accent-gradient: linear-gradient(to right, #06B6D4, #EC4899);
+  --purple-glow: #7C3AED;
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-black);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+.hero-heading {
+  font-size: 12vw;
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+}
+
+.section-header {
+  font-size: 10vw;
+  line-height: 1;
+}
+
+.tracking-wide {
+  letter-spacing: 0.2em;
+}
+
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+}
+
+input, textarea, select {
+  color: #FFFFFF !important;
+}
+
+.input-field {
+  background: #111111;
+  border: 1px solid var(--glass-border);
+  color: #FFFFFF !important;
+  padding: 14px 20px;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.btn-cinematic {
+  background: var(--accent-gradient);
+  color: white;
+  padding: 12px 32px;
+  border-radius: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-cinematic:hover {
+  transform: scale(1.02);
+  filter: brightness(1.1);
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.4);
+}
+
+/* 3D Container */
+.perspective-container {
+  perspective: 2000px;
+}
+
+/* Grayscale hover effect */
+.grayscale-img {
+  filter: grayscale(100%);
+  transition: filter 0.4s ease;
+}
+
+.grayscale-img:hover {
+  filter: grayscale(0%);
+}
+
+/* Pulse Animation */
+@keyframes pulse-red {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse-red 2s infinite;
+}
+
+/* Mix Blend Difference for Nav */
+.nav-cinematic {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  mix-blend-mode: difference;
+}
+
+/* 3D Cube Styles */
+.cube-wrapper {
+  width: 50vh;
+  height: 50vh;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateCube 20s infinite linear;
+}
+
+@keyframes rotateCube {
+  from { transform: rotateX(0deg); }
+  to { transform: rotateX(360deg); }
+}
+
+.cube-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.1);
+  overflow: hidden;
+}
+
+.cube-face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.cube-face h2 {
+  position: absolute;
+  color: white;
+  font-size: 2.5rem;
+  z-index: 2;
+}
+
+.face-front  { transform: rotateX(0deg) translateZ(25vh); }
+.face-bottom { transform: rotateX(-90deg) translateZ(25vh); }
+.face-back   { transform: rotateX(-180deg) translateZ(25vh); }
+.face-top    { transform: rotateX(90deg) translateZ(25vh); }
+
+/* Range Slider Styles */
+input[type="range"].cinematic-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  background: #374151;
+  border-radius: 4px;
+  outline: none;
+}
+
+input[type="range"].cinematic-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.5);
+}
+
+/* Aurora background tweak to stay behind cinematic depth */
+.aurora-container {
+  z-index: -10 !important;
+}
