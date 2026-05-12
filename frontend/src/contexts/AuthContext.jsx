@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }) => {
                 password: password
             });
 
-            console.log(username, password)
+
             console.log(request.data)
 
             if (request.status === httpStatus.OK) {
@@ -67,7 +67,7 @@ export const AuthProvider = ({ children }) => {
             });
             return request.data
         } catch
-         (err) {
+        (err) {
             throw err;
         }
     }
